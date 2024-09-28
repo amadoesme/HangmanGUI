@@ -1,0 +1,48 @@
+# Esmeralda Amado
+
+# Similar to Ex2 but with buttons
+import tkinter as tk
+import random
+
+# Resized the window to 300 by 300 pixels
+window = tk.Tk()
+window.geometry("300x300")
+
+# I changed the backround color. I checked the python color palette
+window.configure(bg="plum")
+
+# Added a title to the window
+window.title("Esme's GUI project")
+
+# My first label prints out as a default
+label1= tk.Label (window, text="Hello CS 1010")
+label1.pack()
+
+# Second label has different text, backround color, text color and font.
+label2= tk.Label (window, text="Have a good day!", bg="cornflowerblue", fg="darkred", font=("Times New Roman",18,"bold"))
+label2.pack()
+
+# Inserting the buttons
+button1 = tk.Button(window, text="Button One")
+button2 = tk.Button(window, text="Button Two")
+
+# Changed the background color and size of the second button
+button2.config(bg="lightpink", width=18, height=2)
+
+# Function to change the text of the first label when the first button is pressed
+def change_text():
+    label1.config(text="Button One has been pushed")
+
+# Function to change the text of the first and second labels when the second button is pressed
+def show_random():
+    label1.config(text="Here is a random number")
+    label2.config(text=random.randint(1, 100))
+
+# Binded the functions to the buttons
+button1.config(command=change_text)
+button2.config(command=show_random)
+
+button1.pack()
+button2.pack()
+
+window.mainloop()
